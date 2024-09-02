@@ -75,7 +75,7 @@ st.divider()
 st.markdown("""
 <h3 class='stSubtitle'>
     Hi, <a href='https://linkedin.com/in/shresthshuklaji' style='color: #FF6347; text-decoration: none;'>Shresth</a> this side. Just created this quick application to convert your videos into MP4 format. 
-    Upload a video file in WMV format or any other supported format to convert it to MP4.
+    Upload a video file in WMV format or any other supported format to convert it to MP4. Video might not be visible on the interface, so directly click convert button once uploaded.
 </h3>
 """, unsafe_allow_html=True)
 st.divider()
