@@ -22,15 +22,71 @@ def convert_to_mp4(input_file_path):
         return None
 
 # Initialize the Streamlit app
-st.title("Video Converter: WMV to MP4")
-st.write("Upload a video file in WMV format or any other supported format to convert it to MP4.")
+# st.title("Video Converter: WMV to MP4")
+# st.write("Upload a video file in WMV format or any other supported format to convert it to MP4.")
+
+
+
+# Adding custom CSS for styling
+st.markdown(
+    """
+    <style>
+    .main {
+        background-color: #f0f0f5;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .stButton>button {
+        color: white;
+        background-color: #4CAF50;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+    .stDownloadButton>button {
+        color: white;
+        background-color: #FF6347;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+    .stTitle {
+        color: #4CAF50;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .stSubtitle {
+        color: #333;
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+
+# Initialize the Streamlit app with a title and subtitle
+st.markdown("<div class='main'><h1 class='stTitle'>Video Converter: WMV to MP4</h1>", unsafe_allow_html=True)
+
+st.divider()
+
+st.markdown("""
+<h3 class='stSubtitle'>
+    Hi, <a href='https://linkedin.com/in/shresthshuklaji' style='color: #FF6347; text-decoration: none;'>Shresth</a> this side. Just created this quick application to convert your videos into MP4 format. 
+    Upload a video file in WMV format or any other supported format to convert it to MP4.
+</h3>
+""", unsafe_allow_html=True)
+st.divider()
+
 
 # File upload
 uploaded_file = st.file_uploader("Choose a video file", type=["wmv", "avi", "mov", "mkv", "flv"])
 
 if uploaded_file is not None:
     # Display file details
-    st.write("File uploaded successfully!")
+    st.write("### File uploaded successfully!")
     st.video(uploaded_file)
 
     # Convert the uploaded file to MP4
