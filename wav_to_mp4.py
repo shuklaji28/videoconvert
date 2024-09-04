@@ -67,47 +67,48 @@ st.markdown(
 )
 
 
-# Initialize the Streamlit app with a title and subtitle
-st.markdown("<div class='main'><h1 class='stTitle'>Video Converter: WMV to MP4</h1>", unsafe_allow_html=True)
-
-st.divider()
-
-st.markdown("""
-<h3 class='stSubtitle'>
-    Hi, <a href='https://linkedin.com/in/shresthshuklaji' style='color: #FF6347; text-decoration: none;'>Shresth</a> this side. Just created this quick application to convert your videos into MP4 format. 
-    Upload a video file in WMV format or any other supported format to convert it to MP4. Video might not be visible on the interface, so directly click convert button once uploaded.
-</h3>
-""", unsafe_allow_html=True)
-st.divider()
-
-
-# File upload
-uploaded_file = st.file_uploader("Choose a video file", type=["wmv", "avi", "mov", "mkv", "flv"])
-
-if uploaded_file is not None:
-    # Display file details
-    st.write("### File uploaded successfully!")
-    st.video(uploaded_file)
-
-    # Convert the uploaded file to MP4
-    if st.button("Convert to MP4"):
-        with st.spinner('Converting...'):
-            # Save the uploaded file to a temporary file
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".wmv") as temp_input_file:
-                temp_input_file.write(uploaded_file.read())
-                temp_input_path = temp_input_file.name
-
-            # Convert the video
-            output_file_path = convert_to_mp4(temp_input_path)
-
-            # Remove the temporary input file
-            os.remove(temp_input_path)
-
-            if output_file_path:
-                # Provide a download button for the converted MP4 file
-                st.success("Conversion successful!")
-                with open(output_file_path, "rb") as file:
-                    st.download_button(label="Download MP4", data=file, file_name="converted_video.mp4", mime="video/mp4")
-                
-                # Remove the temporary output file
-                os.remove(output_file_path)
+with st.container(border=True):
+    # Initialize the Streamlit app with a title and subtitle
+    st.markdown("<div class='main'><h1 class='stTitle'>Video Converter: WMV to MP4</h1>", unsafe_allow_html=True)
+    
+    st.divider()
+    
+    st.markdown("""
+    <h3 class='stSubtitle'>
+        Hi, <a href='https://linkedin.com/in/shresthshuklaji' style='color: #FF6347; text-decoration: none;'>Shresth</a> this side. Just created this quick application to convert your videos into MP4 format. 
+        Upload a video file in WMV format or any other supported format to convert it to MP4. Video might not be visible on the interface, so directly click convert button once uploaded.
+    </h3>
+    """, unsafe_allow_html=True)
+    st.divider()
+    
+    
+    # File upload
+    uploaded_file = st.file_uploader("Choose a video file", type=["wmv", "avi", "mov", "mkv", "flv"])
+    
+    if uploaded_file is not None:
+        # Display file details
+        st.write("### File uploaded successfully!")
+        st.video(uploaded_file)
+    
+        # Convert the uploaded file to MP4
+        if st.button("Convert to MP4"):
+            with st.spinner('Converting...'):
+                # Save the uploaded file to a temporary file
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".wmv") as temp_input_file:
+                    temp_input_file.write(uploaded_file.read())
+                    temp_input_path = temp_input_file.name
+    
+                # Convert the video
+                output_file_path = convert_to_mp4(temp_input_path)
+    
+                # Remove the temporary input file
+                os.remove(temp_input_path)
+    
+                if output_file_path:
+                    # Provide a download button for the converted MP4 file
+                    st.success("Conversion successful!")
+                    with open(output_file_path, "rb") as file:
+                        st.download_button(label="Download MP4", data=file, file_name="converted_video.mp4", mime="video/mp4")
+                    
+                    # Remove the temporary output file
+                    os.remove(output_file_path)
