@@ -54,7 +54,7 @@ st.markdown(
         font-size: 40px;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
     .stSubtitle {
         color: #333;
