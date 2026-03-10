@@ -1,13 +1,29 @@
-# videoconvert
+# Comprehensive Media Converter
 
-Streamlit application to convert videos into MP4 format. 
+A production-ready, minimalist Streamlit application for converting video and images.
 
-![image](https://github.com/user-attachments/assets/0a542b0c-6a74-44a5-85d4-40b5b66797a1)
+## Features
 
-So, interesting story behind this silly project. One of the Senior Managers on my team asked me to convert demo videos from WMV to MP4 format as requested by a Partner. And the idea hit, xd. So, I first converted the video to MP4 using Python code, then thought, let's be creative. In about 30-40 minutes or so, I created a Streamlit application for this, created a GitHub repo, deployed it on Streamlit Cloud, and sent the link along with the video to her. 
+- **🎥 Video Conversion**: Convert WMV, AVI, MOV, MKV, and FLV to MP4.
+- **🖼️ Batch Image Conversion**: Upload multiple images (PNG, JPG, WEBP, BMP, TIFF) and convert them to your target format simultaneously.
+- **✨ Premium UI**: Clean, minimalist interface with real-time status updates and smooth interactions.
 
-It was fun, xd. Had my dinner smiling the whole time after what I did, lol. 
+## Deployment
 
-Learning by building one silly project at a time.
+This application is optimized for deployment on **Streamlit Cloud**.
 
-To convert videos into MP4 format. Upload any video format to convert it into MP4.
+### Local Setup
+
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Run the application:
+   ```bash
+   streamlit run src/app.py
+   ```
+
+## Creator
+
+Built with ❤️ by [Shresth](https://linkedin.com/in/shresthshuklaji).
+Visit my blog: [uselessai.in](https://uselessai.in).
